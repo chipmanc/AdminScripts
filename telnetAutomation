@@ -1,9 +1,14 @@
+#!/bin/bash
+echo "Enter rcpt to:"
+read rcpt
+echo "Enter mail from:"
+read mail
 exec 3<>/dev/tcp/127.0.0.1/25
 echo -e "ehlo localhost">&3
 sleep 1
-echo -e "mail from: root">&3
+echo -e "mail from: ${mail}">&3
 sleep 1
-echo -e "rcpt to: chris.chipman@rackspace.com">&3
+echo -e "rcpt to: ${rcpt}">&3
 sleep 1
 echo -e "data\nTest\n.">&3
 echo -e "quit">&3
