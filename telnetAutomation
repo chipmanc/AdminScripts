@@ -1,14 +1,10 @@
 #!/bin/bash
-echo "Enter rcpt to:"
-read rcpt
-echo "Enter mail from:"
-read mail
 exec 3<>/dev/tcp/127.0.0.1/25
 echo -e "ehlo localhost">&3
 sleep 1
-echo -e "mail from: ${mail}">&3
+echo -e "mail from: ${1}">&3
 sleep 1
-echo -e "rcpt to: ${rcpt}">&3
+echo -e "rcpt to: ${2}">&3
 sleep 1
 echo -e "data\nTest\n.">&3
 echo -e "quit">&3
