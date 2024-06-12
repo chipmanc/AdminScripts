@@ -5,3 +5,4 @@ sed -e 'N;s/\n/ /' -e 'N;s/\n/ /' | \
 awk '{print $4 $2 $6}' | \
 sed -e 's@[",]@ @g' -e 's:^ :@:' | \
 awk '{print $1 " "  $2 ":" $3}'
+
